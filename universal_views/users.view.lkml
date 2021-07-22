@@ -11,20 +11,18 @@ view: users {
 
   dimension: age {
     hidden: yes
+    type: number
     sql: ${TABLE}.age ;;
-    link: {
-      url: "google.com"
-      label: "This is a dummy link"
-    }
   }
 
-
   dimension: city {
+    hidden: yes
     type: string
     sql: ${TABLE}.city ;;
   }
 
   dimension: country {
+    hidden: yes
     type: string
     map_layer_name: countries
     sql: ${TABLE}.country ;;
@@ -42,6 +40,26 @@ view: users {
       year
     ]
     sql: ${TABLE}.created_at ;;
+  }
+
+  dimension: email {
+    type: string
+    sql: ${TABLE}.email ;;
+  }
+
+  dimension: first_name {
+    type: string
+    sql: ${TABLE}.first_name ;;
+  }
+
+  dimension: gender {
+    type: string
+    sql: ${TABLE}.gender ;;
+  }
+
+  dimension: last_name {
+    type: string
+    sql: ${TABLE}.last_name ;;
   }
 
   dimension: latitude {

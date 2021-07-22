@@ -1,28 +1,31 @@
 include: "/universal_views/users.view.lkml"
 
-view: users_hr {
-  extends: [users]
-  required_access_grants: [hr]
+view: +users {
   dimension: age {
+    required_access_grants: [hr]
     type: number
     sql: ${TABLE}.age ;;
   }
   dimension: email {
+    required_access_grants: [hr]
     type: string
     sql: ${TABLE}.email ;;
   }
 
   dimension: first_name {
+    required_access_grants: [hr]
     type: string
     sql: ${TABLE}.first_name ;;
   }
 
   dimension: gender {
+    required_access_grants: [hr]
     type: string
     sql: ${TABLE}.gender ;;
   }
 
   dimension: last_name {
+    required_access_grants: [hr]
     type: string
     sql: ${TABLE}.last_name ;;
   }

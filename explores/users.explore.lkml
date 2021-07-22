@@ -2,8 +2,7 @@ include: "/universal_views/users.view.lkml"
 
 ## Require fields to be empty
 
-explore: users_base {
+explore: users {
   fields: []
-  extension: required
   view_name: users
 }

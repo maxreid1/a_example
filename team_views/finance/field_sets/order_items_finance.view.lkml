@@ -1,10 +1,8 @@
 include: "/universal_views/order_items.view.lkml"
 
-view: order_items_finance {
-  label: "Order Items - Finance Specific"
-  extends: [order_items]
-  required_access_grants: [finance]
+view: +order_items {
   measure: total_finance_count {
+    required_access_grants: [finance]
     description: "Example to show that only HR has access to this"
     type: sum
     sql: SUM(${sale_price}) ;;

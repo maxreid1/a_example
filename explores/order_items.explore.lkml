@@ -3,9 +3,8 @@ include: "/universal_views/inventory_items.view.lkml"
 
 ## Require fields to be empty
 
-explore: order_items_base {
+explore: order_items {
   fields: []
-  extension: required
   view_name: order_items
   join: inventory_items {
     relationship: many_to_one
