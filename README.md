@@ -1,2 +1,2 @@
-1. Everything in the views folder is auto-generated code
-2.
+1. Base explores always with empty field list
+2. Each team has two types of modifications: custom sets, and specific views

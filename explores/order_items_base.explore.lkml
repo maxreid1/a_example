@@ -1,7 +1,10 @@
-include: "/views/order_items.view.lkml"
-include: "/views/inventory_items.view.lkml"
+include: "/universal_views/order_items.view.lkml"
+include: "/universal_views/inventory_items.view.lkml"
+
+## Require fields to be empty
 
 explore: order_items_base {
+  fields: []
   extension: required
   view_name: order_items
   join: inventory_items {

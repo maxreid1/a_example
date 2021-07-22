@@ -99,6 +99,10 @@ view: order_items {
     drill_fields: [detail*]
   }
 
+  set: sample_set {
+    fields: [status, user_id, count]
+  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [

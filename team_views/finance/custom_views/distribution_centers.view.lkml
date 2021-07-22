@@ -1,4 +1,5 @@
 view: distribution_centers {
+  required_access_grants: [finance]
   sql_table_name: `looker-private-demo.thelook.distribution_centers`
     ;;
   drill_fields: [id]

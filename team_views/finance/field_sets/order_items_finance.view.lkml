@@ -1,10 +1,17 @@
-include: "/views/order_items.view.lkml"
+include: "/universal_views/order_items.view.lkml"
 
-view: +order_items {
-  required_access_grants: [hr]
-  dimension: hr_test_dimension {
-    type: number
-    sql: 1 ;;
+view: order_items_finance {
+  label: "Order Items - Finance Specific"
+  extends: [order_items]
+  required_access_grants: [finance]
+  measure: total_finance_count {
+    description: "Example to show that only HR has access to this"
+    type: sum
+    sql: SUM(${sale_price}) ;;
+  }
+
+  set: finance_order_items {
+    fields: [total_finance_count]
   }
   # # You can specify the table name if it's different from the view name:
   # sql_table_name: my_schema_name.tester ;;
@@ -36,7 +43,7 @@ view: +order_items {
   # }
 }
 
-# view: hr_order_items_refined {
+# view: order_items_hr {
 #   # Or, you could make this view a derived table, like this:
 #   derived_table: {
 #     sql: SELECT

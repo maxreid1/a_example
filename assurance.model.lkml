@@ -2,8 +2,6 @@ connection: "looker-private-demo"
 
 ## Include base Explores that "everyone" should have access to. Build content for
 
-include: "/explores/order_items_base.explore.lkml"
-include: "/explores/users_base.explore.lkml"
 
 access_grant: hr {
   user_attribute: department
@@ -15,12 +13,19 @@ access_grant: finance {
   allowed_values: ["finance"]
 }
 
-explore: order_items {
-  extends: [order_items_base]
-  required_access_grants: [finance, hr]
+### Team-specific customications
+
+include: "/explore_customizations/explores_with_custom_joins.lkml"
+
+### Expose out joins here. Because we have the base explores as fields = empty, we have to be very particular here about fields that are included
+
+explore: +order_items {
+  fields: [order_items.sample_set*, order_items_hr.hr_order_items*, order_items_finance.finance_order_items*, inventory_item_id, distribution_centers.name]
 }
 
-explore: users {
-  extends: [users_base]
-  required_access_grants: [finance, hr]
+explore: +users {
+  fields: [users.generic_fields*,users_hr.pii*]
 }
+
+
+### Refinements for specific fields

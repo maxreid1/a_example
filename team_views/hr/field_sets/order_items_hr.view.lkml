@@ -1,7 +1,17 @@
-include: "/views/order_items.view.lkml"
-view: +order_items {
-  set: finance_fields {
-    fields: [created_date, count]
+include: "/universal_views/order_items.view.lkml"
+
+view: order_items_hr {
+  label: "Order Items - HR Specific"
+  extends: [order_items]
+  required_access_grants: [hr]
+  measure: total_hr_count {
+    description: "Example to show that only HR has access to this"
+    type: sum
+    sql: SUM(${sale_price}) ;;
+  }
+
+  set: hr_order_items {
+    fields: [total_hr_count]
   }
   # # You can specify the table name if it's different from the view name:
   # sql_table_name: my_schema_name.tester ;;
@@ -33,7 +43,7 @@ view: +order_items {
   # }
 }
 
-# view: order_items_refined {
+# view: order_items_hr {
 #   # Or, you could make this view a derived table, like this:
 #   derived_table: {
 #     sql: SELECT
