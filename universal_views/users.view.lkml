@@ -9,6 +9,15 @@ view: users {
     sql: ${TABLE}.id ;;
   }
 
+  dimension: age {
+    hidden: yes
+    sql: ${TABLE}.age ;;
+    link: {
+      url: "google.com"
+      label: "This is a dummy link"
+    }
+  }
+
 
   dimension: city {
     type: string
