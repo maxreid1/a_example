@@ -1,4 +1,11 @@
+include: "/team_views/finance/field_sets/order_items_finance.view"
+include: "/team_views/hr/field_sets/order_items_hr.view"
 view: order_items {
+  extends: [order_items_finance, order_items_hr]
+}
+
+view: order_items_base {
+  extension: required
   sql_table_name: `looker-private-demo.thelook.order_items`
     ;;
   drill_fields: [id]

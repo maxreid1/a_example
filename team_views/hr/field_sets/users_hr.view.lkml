@@ -1,10 +1,10 @@
 include: "/universal_views/users.view.lkml"
-
 view: users_hr {
-  extends: [users]
+  extends: [users_core]
+  extension: required
   required_access_grants: [hr]
   dimension: age {
-    type: number
+    hidden: no
     sql: ${TABLE}.age ;;
   }
   dimension: email {

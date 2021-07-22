@@ -20,11 +20,11 @@ include: "/explore_customizations/explores_with_custom_joins.lkml"
 ### Expose out joins here. Because we have the base explores as fields = empty, we have to be very particular here about fields that are included
 
 explore: +order_items {
-  fields: [order_items.sample_set*, order_items_hr.hr_order_items*, order_items_finance.finance_order_items*, inventory_item_id, distribution_centers.name]
+  fields: [order_items.sample_set*, order_items.hr_order_items*, order_items.finance_order_items*, inventory_item_id, distribution_centers.name]
 }
 
 explore: +users {
-  fields: [users.generic_fields*,users_hr.pii*]
+  fields: [users.generic_fields*,users.pii*]
 }
 
 

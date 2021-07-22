@@ -1,4 +1,10 @@
+include: "/team_views/hr/field_sets/users_hr.view.lkml"
 view: users {
+  extends: [users_hr]
+}
+
+view: users_core {
+  extension: required
   sql_table_name: `looker-private-demo.thelook.users`
     ;;
   drill_fields: [id]
@@ -10,7 +16,6 @@ view: users {
   }
 
   dimension: age {
-    hidden: yes
     sql: ${TABLE}.age ;;
     link: {
       url: "google.com"

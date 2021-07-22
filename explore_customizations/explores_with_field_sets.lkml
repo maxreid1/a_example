@@ -9,20 +9,20 @@ include: "/team_views/*/*/*.lkml"
 explore: order_items {
   extends: [order_items_base]
   ### Field Sets
-  join: order_items_hr {
-    relationship: one_to_one
-    sql:  ;;
-  }
-  join: order_items_finance {
-    relationship: one_to_one
-    sql:  ;;
-  }
+  # join: order_items_hr {
+  #   relationship: one_to_one
+  #   sql:  ;;
+  # }
+  # join: order_items_finance {
+  #   relationship: one_to_one
+  #   sql:  ;;
+  # }
 }
 
 explore: users {
   extends: [users_base]
-  join: users_hr {
-    relationship: one_to_one
-    sql:  ;;
-  }
+  # join: users_hr {
+  #   relationship: one_to_one
+  #   sql:  ;;
+  # }
 }

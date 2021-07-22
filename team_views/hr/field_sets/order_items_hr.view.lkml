@@ -2,7 +2,8 @@ include: "/universal_views/order_items.view.lkml"
 
 view: order_items_hr {
   label: "Order Items - HR Specific"
-  extends: [order_items]
+  extends: [order_items_base]
+  extension: required
   required_access_grants: [hr]
   measure: total_hr_count {
     description: "Example to show that only HR has access to this"
