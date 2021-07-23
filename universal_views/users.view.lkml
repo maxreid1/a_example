@@ -92,7 +92,12 @@ view: users {
     drill_fields: [id, order_items.count]
   }
 
+  measure: total_applicants {
+    type: count
+    drill_fields: [age, state]
+  }
+
   set: generic_fields {
-    fields: [city, country, state]
+    fields: [city, country, state, total_applicants]
   }
 }

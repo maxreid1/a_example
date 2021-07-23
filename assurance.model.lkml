@@ -17,6 +17,16 @@ access_grant: product {
   allowed_values: ["product"]
 }
 
+# access_grant: can_see_pii {
+#   user_attribute: can_see_pii
+#   allowed_values: ["yes"]
+# }
+
+access_grant: finance_or_product {
+  user_attribute: department
+  allowed_values: ["finance","product"]
+}
+
 ## Include base Explores that "everyone" should have access to. Build content for
 include: "/explores/users.explore"
 include: "/explores/sample.explore"
